@@ -1,15 +1,21 @@
 import express, { Request, Response } from 'express';
 import { MongoClient, ServerApiVersion, Collection } from 'mongodb';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+
 const PORT = 8080;
 
-const uri = "mongodb+srv://akshay1999achu_db_user:yx1RikSKuRmSkjrn@cluster0.lf5k9dc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+const uri = process.env.MONGO_URI;
+if (!uri) {
+  throw new Error("MONGO_URI is not defined in the environment variables");
+}
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
