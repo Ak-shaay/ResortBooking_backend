@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "target": "ES2020",                 // Modern Node.js supports ES2020 features
+    "module": "CommonJS",               // Node.js default module system
+    "outDir": "./dist",                 // Compiled JS output
+    "rootDir": "./src",                 // Explicit root directory
+    "strict": true,                     // Enables strict type checks
+    "esModuleInterop": true,            // Allows default imports from CommonJS
+    "skipLibCheck": true,               // Avoids type conflicts in node_modules
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"],           // All TS files in src
+  "exclude": ["node_modules"]           // Exclude dependencies
 }
