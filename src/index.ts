@@ -34,9 +34,11 @@ async function startServer() {
         const db = client.db("Resortdb");
         collection = db.collection("bookings");
 
-        app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}`);
-        });
+        /*vercel deployment */
+        // app.listen(PORT, () => {
+        //     console.log(`Server running on http://localhost:${PORT}`);
+        // });
+
     } catch (err) {
         console.error("Failed to connect to MongoDB:", err);
         process.exit(1); 
@@ -118,3 +120,6 @@ app.get('/bookings', async (req: Request, res: Response) => {
         return res.status(500).json({ message: "Error fetching booking details" });
     }
 });
+
+// vercel
+export default app;
