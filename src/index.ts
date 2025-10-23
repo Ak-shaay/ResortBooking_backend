@@ -121,5 +121,5 @@ app.get('/bookings', async (req: Request, res: Response) => {
     }
 });
 
-// vercel
+// vercel deployment
 export default app;
